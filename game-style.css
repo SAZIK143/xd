@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+body {
+    display: grid;
+    grid-template-rows: 150px 1fr;
+    background-color: #f39c12;
+    font-family: 'Dosis', sans-serif;
+}
+
+header {
+    display: grid;
+    color: white;
+}
+
+    header h1 {
+        place-self: center;
+    }
+
+#app-sudoku {
+    place-self: center;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    justify-items: center;
+}
+
+.buttons-container {
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+.button {
+    display: inline-block;
+    border-radius: 6px;
+    background-color: whitesmoke;
+    border: none;
+    color: black;
+    text-align: center;
+    font-size: 16px;
+    padding: 10px;
+    width: 230px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 0px 0px 25px 0px;
+    font-family: 'Dosis', sans-serif;
+    font-weight: bold;
+}
+
+    .button span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+    .button:hover span {
+        padding-right: 25px;
+    }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+.grid-sudoku {
+    display: table;
+    background: white;
+    border: 3px solid black;
+}
+
+    .grid-sudoku > div:nth-child(3), .grid-sudoku > div:nth-child(6) {
+        border-bottom: 3px solid black;
+    }
+
+    .grid-row > div:nth-child(3), .grid-row > div:nth-child(6) {
+        border-right: 3px solid black;
+    }
+
+.grid-cell {
+    display: table-cell;
+    padding: 10px;
+    border: 1px solid gray;
+}
+
+.grid-cell-editor {
+    border: none;
+    width: 20px;
+    height: 20px;
+    font-family: 'Dosis', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+    transition: all ease 1.0s;
+}
+
+.answer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.answer-image {
+    border: 2px solid black;
+    width: 300px;
+    height: 300px;
+}
+
+.list-animation-enter, .list-animation-leave-to {
+    opacity: 0;
+    transform: translateY(20px) translateX(20px) rotate(200deg) scale(0.5);
+}
+
+.list-animation-leave-active {
+    position: absolute;
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+}
