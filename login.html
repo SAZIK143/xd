@@ -4,34 +4,45 @@
         <title>Multiplayer - Suduku</title>
         <script src="./jquery-3.4.1.min.js"></script>
         <script type="text/javascript" src="client.js"></script>
+        <script type="text/javascript" src="generator.js"></script>
         <script type="text/javascript" src="login.js"></script>
         <script src="./vue.min.js"></script>
 
         <link href="game-style.css" rel="stylesheet" />
     </head>
 <body>
-    <header>
-        <h1>SUDUKU Multiplayer</h1>
-    </header>
 
-    <div id="LoginRegisterScreen">
-        <h2 id="status">Choose one option</h2><br>
 
-        <input type="radio" name="ls" value="" onclick="showLogIn()" id="dupa">Login
-        <input type="radio" name="ls" value="" onclick="showSignUp()" id="dupa2">Register<br>
-        <input type="text" id="email" name="email" style="display:none" placeholder="Enter your email"><br>
-        <input type="text" id="nick" name="nick" style="display:none" placeholder="Enter your nickname"><br>
-        <input type="password" id="pass" name="pass" style="display:none" placeholder="Enter your new password"><br>
-        <button id="inButton" onclick="signIN()" style="display:none">Login</button>
-        <button id="upButton" onclick="signUp()" style="display:none">Register</button>
-    </div>
 
-    <div id="Game" style="display:none">
+    <div id="Game" >
 
         <div id="app-sudoku">
 
+            <ul>
+              <li><a href="default.asp">Home</a></li>
+              <li><a href="news.asp">News</a></li>
+              <li><a href="contact.asp">Contact</a></li>
+              <li style="float:right"><a href="login.html">Sign In/Sign Up</a></li>
+            </ul>
+
+            <br><br>
+
+            <div id="LoginRegisterScreen">
+                <h2 id="status">Choose one option</h2><br>
+
+                <div id="radioLogin">
+                    <input type="radio" name="ls" value="" onclick="showLogIn()" id="d">Login <br>
+                    <input type="radio" name="ls" value="" onclick="showSignUp()" id="d2">Register
+                </div>
+                <input type="text" id="email" name="email" style="display:none" placeholder="Enter your email"><br>
+                <input type="text" id="nick" name="nick" style="display:none" placeholder="Enter your nickname"><br>
+                <input type="password" id="pass" name="pass" style="display:none" placeholder="Enter your new password"><br>
+                <button id="inButton" onclick="signIN()" style="display:none">Login</button>
+                <button id="upButton" onclick="signUp()" style="display:none">Register</button>
+            </div>
+
            <div class="buttons-container">
-               <button class="button" id="getSudokuBtn" v-on:click="initializeMyGame()"><span>{{ initializeGameText }}</span></button>
+               <button class="button" id="getSudokuBtn" style="display:none" v-on:click="initializeMyGame()"><span>{{ initializeGameText }}</span></button>
                <button class="button" id="readyUpBtn" style="display:none" v-on:click="prepareGame()"><span>Join game</span></button>
                <!-- <transition name="fade">
                    <button class="button" v-on:click="evaluateGame()" v-if="isGameStarted"><span>{{ evaluateGameText }}</span></button>
